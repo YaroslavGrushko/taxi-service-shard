@@ -10,5 +10,5 @@
 *Mongo cluster is Ok now!  
 **launch emulation of "taxis" service (Uber like:))**  
 6. open cmd in *taxi-service-test* folder and type **docker-compose build** to build images of sercvice servers  
-7. run service with **docker-compose up** command
+7. run service with **docker-compose up** command  
 *"taxi" service is Ok now:)*
