@@ -7,18 +7,18 @@ services:
     command: mongod --port 27017 --configsvr --replSet configserver --noprealloc --smallfiles --oplogSize 16
     volumes:
       - ./scripts:/scripts
-  # config02:
-  #   image: mongo
-  #   container_name: config02_1
-  #   command: mongod --port 27017 --configsvr --replSet configserver --noprealloc --smallfiles --oplogSize 16
-  #   volumes:
-  #     - ./scripts:/scripts
-  # config03:
-  #   image: mongo
-  #   container_name: config03_1
-  #   command: mongod --port 27017 --configsvr --replSet configserver --noprealloc --smallfiles --oplogSize 16
-  #   volumes:
-  #     - ./scripts:/scripts
+  config02:
+    image: mongo
+    container_name: config02_1
+    command: mongod --port 27017 --configsvr --replSet configserver --noprealloc --smallfiles --oplogSize 16
+    volumes:
+      - ./scripts:/scripts
+  config03:
+    image: mongo
+    container_name: config03_1
+    command: mongod --port 27017 --configsvr --replSet configserver --noprealloc --smallfiles --oplogSize 16
+    volumes:
+      - ./scripts:/scripts
 
   ## Shards
   shard01a:
@@ -26,37 +26,36 @@ services:
     command: mongod --port 27018 --shardsvr --replSet shard01 --noprealloc --smallfiles --oplogSize 16
     volumes:
       - ./scripts:/scripts
-
-  # shard01b:
-  #   image: mongo
-  #   container_name: shard01b_1
-  #   command: mongod --port 27018 --shardsvr --replSet shard01 --noprealloc --smallfiles --oplogSize 16
-  #   volumes:
-  #     - ./scripts:/scripts
-  # shard02a:
-  #   image: mongo
-  #   container_name: shard02a_1
-  #   command: mongod --port 27019 --shardsvr --replSet shard02 --noprealloc --smallfiles --oplogSize 16
-  #   volumes:
-  #     - ./scripts:/scripts
-  # shard02b:
-  #   image: mongo
-  #   container_name: shard02b_1
-  #   command: mongod --port 27019 --shardsvr --replSet shard02 --noprealloc --smallfiles --oplogSize 16
-  #   volumes:
-  #     - ./scripts:/scripts
-  # shard03a:
-  #   image: mongo
-  #   container_name: shard03a_1
-  #   command: mongod --port 27020 --shardsvr --replSet shard03 --noprealloc --smallfiles --oplogSize 16
-  #   volumes:
-  #     - ./scripts:/scripts
-  # shard03b:
-  #   image: mongo
-  #   container_name: shard03b_1
-  #   command: mongod --port 27020 --shardsvr --replSet shard03 --noprealloc --smallfiles --oplogSize 16
-  #   volumes:
-  #     - ./scripts:/scripts
+  shard01b:
+    image: mongo
+    container_name: shard01b_1
+    command: mongod --port 27018 --shardsvr --replSet shard01 --noprealloc --smallfiles --oplogSize 16
+    volumes:
+      - ./scripts:/scripts
+  shard02a:
+    image: mongo
+    container_name: shard02a_1
+    command: mongod --port 27019 --shardsvr --replSet shard02 --noprealloc --smallfiles --oplogSize 16
+    volumes:
+      - ./scripts:/scripts
+  shard02b:
+    image: mongo
+    container_name: shard02b_1
+    command: mongod --port 27019 --shardsvr --replSet shard02 --noprealloc --smallfiles --oplogSize 16
+    volumes:
+      - ./scripts:/scripts
+  shard03a:
+    image: mongo
+    container_name: shard03a_1
+    command: mongod --port 27020 --shardsvr --replSet shard03 --noprealloc --smallfiles --oplogSize 16
+    volumes:
+      - ./scripts:/scripts
+  shard03b:
+    image: mongo
+    container_name: shard03b_1
+    command: mongod --port 27020 --shardsvr --replSet shard03 --noprealloc --smallfiles --oplogSize 16
+    volumes:
+      - ./scripts:/scripts
 
   ## Router
   router:
@@ -70,11 +69,11 @@ services:
       - ./mydata:/mydata
     depends_on:
       - config01
-      # - config02
-      # - config03
+      - config02
+      - config03
       - shard01a
-      # - shard01b
-      # - shard02a
-      # - shard02b
-      # - shard03a
-      # - shard03b
+      - shard01b
+      - shard02a
+      - shard02b
+      - shard03a
+      - shard03b
