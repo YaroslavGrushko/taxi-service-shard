@@ -1,0 +1,10 @@
+sh.enableSharding("taxisService");
+printjson("taxisService sharding enabled");
+db.createCollection("taxisService.clients");
+printjson("clients collection is crieted");
+sh.shardCollection("taxisService.clients", { ClientsShardingField: 1 });
+printjson("clients collection is sharded");
+db.createCollection("taxisService.taxisCoord");
+printjson("taxisCoord collection is crieted");
+sh.shardCollection("taxisService.taxisCoord", { taxisCoordShardingField: 1 });
+printjson("taxisCoord collection is sharded");
