@@ -1,0 +1,22 @@
+version: "2"
+services:
+
+ taxis:
+  build:
+   context: ./taxis/
+  ports:
+    - "8080:8080"
+  command: >
+       bash -c "npm start"
+  network_mode: host
+
+ server:
+  build:
+   context: ./server/
+  ports:
+    - "5000:5000"
+  volumes:
+    - ./server/config/:/usr/app/server/config
+  network_mode: host
+  command: >
+       bash -c "npm start"

@@ -1,0 +1,32 @@
+{
+    "name": "taxi_service",
+    "version": "1.0.0",
+    "description": "taxi service (including main server taxi and clients emulators and mongoDb database)",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "server": "nodemon server.js"
+    },
+    "keywords": [
+        "taxi",
+        "service",
+        "emulator",
+        "mongoDb"
+    ],
+    "author": "Yaroslav, Denis",
+    "license": "ISC",
+    "dependencies": {
+        "assert": "^1.4.1",
+        "body-parser": "^1.18.3",
+        "cluster": "^0.7.7",
+        "express": "^4.16.4",
+        "http": "0.0.0",
+        "mongodb": "^3.1.10",
+        "nconf": "^0.10.0",
+        "node": "^11.2.0",
+        "nodemon": "^1.18.7",
+        "path": "^0.12.7",
+        "querystring": "^0.2.0"
+    }
+}

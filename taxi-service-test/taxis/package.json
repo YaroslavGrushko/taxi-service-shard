@@ -1,0 +1,20 @@
+{
+    "name": "taxis",
+    "version": "1.0.0",
+    "description": "",
+    "main": "t-server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node t-server.js",
+        "server": "nodemon t-server.js"
+    },
+    "author": "Yaroslav, Denis",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "cluster": "^0.7.7",
+        "express": "^4.16.4",
+        "nconf": "^0.10.0",
+        "nodemon": "^1.18.7"
+    }
+}

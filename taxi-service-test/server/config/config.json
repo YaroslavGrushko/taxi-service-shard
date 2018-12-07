@@ -1,0 +1,11 @@
+{
+    "port": 5000,
+    "TAXIS_COUNT": 3,
+    "CLIENTS_NUM": 3,
+    "TIME_MIN": 0,
+    "TIME_MAX": 5000,
+    "my-mongo": {
+        "mongo-url": "mongodb://127.0.0.1:27017",
+        "dbName": "taxisService"
+    }
+}
